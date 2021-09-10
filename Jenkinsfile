@@ -38,4 +38,15 @@ pipeline {
           }
           }
   }
+  post {
+    always {
+      echo "it is always executed!"
+    }
+    success {
+      echo "we are successful"
+    }
+    failure {
+      echo "good to know the failure"
+    }
+  }
 }
