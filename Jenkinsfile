@@ -42,7 +42,7 @@ pipeline {
       } */
           steps {
              bat 'mvn package'
-        withCredentials(
+   /*     withCredentials(
           [
             usernamePassword(credentials: 'server-credentials', 
                              usernameVariable: USER, passwordVariable: PWD)
@@ -51,7 +51,7 @@ pipeline {
             {
               bat "SHOWING HOW TO DISPLAY CREDENTIALS ${USER} ${PWD}"
             }
-            
+            */
           }
           }
     stage('Installing Stage') {
