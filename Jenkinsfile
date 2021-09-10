@@ -3,7 +3,7 @@ pipeline {
  
  parameters {
   // string(name: 'VERSION', defaultValue:'', desription: 'version to deploy onn prod')
-   choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], decription: 'try choices')
+   choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: 'try choices')
    booleanParam(name: 'executeTests', defaultValues: true, description: 'say to true or false')
  }
 
