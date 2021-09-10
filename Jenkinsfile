@@ -44,7 +44,7 @@ pipeline {
         withCredentials(
           [
             usernamePassword(credentials: 'server-credentials', 
-                             usernameVariable: USER, passwordVariable: PWD
+                             usernameVariable: USER, passwordVariable: PWD)
           ]
         ) 
             {
