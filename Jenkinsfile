@@ -22,11 +22,12 @@ pipeline {
       }
     stage('Testing Stage') {
       
-       when {
+    /*   when {
         expression {
           BRANCH_NAME == 'dev' && CODE_CHANGES == 'master'
         }
       }
+      */
           steps {
           
               bat 'mvn test'
