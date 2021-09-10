@@ -13,6 +13,7 @@ pipeline {
     stage('Compile Stage') {
       steps {
      
+      echo GIT_AUTHOR_EMAIL
           bat "mvn clean"
         
       }
@@ -52,7 +53,6 @@ pipeline {
   }
   post {
     always {
-      echo GIT_AUTHOR_EMAIL
     }
     success {
       echo "we are successful"
