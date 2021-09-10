@@ -1,39 +1,39 @@
 pipeline {
   agent any
   environment {
-       PATH = "C:\apache-maven-3.8.1\bin:$PATH"
+       PATH = "C:/apache-maven-3.8.1/bin:$PATH"
       
     }
   stages {
-     stage('Compile Stage') {
+     stage('Clone COde') {
       steps {
-    git url: "https://github.com/Dawed-Muzeyen/exception-handling.git"
+   git branch: 'main', changelog: false, credentialsId: 'MyGitHub', poll: false, url: 'https://github.com/Dawed-Muzeyen/exception-handling.git'
       }}
     stage('Compile Stage') {
       steps {
      
-          sh 'mvn clean'
+          bat "mvn clean"
         
       }
       }
     stage('Testing Stage') {
           steps {
           
-              sh 'mvn test'
+              bat 'mvn test'
             
           }
           }
     stage('Packagin Stage') {
           steps {
         
-              sh 'mvn package'
+              bat 'mvn package'
             
           }
           }
     stage('Installing Stage') {
           steps {
          
-              sh 'mvn install'
+              bat 'mvn install'
             
           }
           }
