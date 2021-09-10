@@ -34,14 +34,22 @@ pipeline {
           }
           }
     stage('Packagin Stage') {
-      when {
+   /*   when {
         expression {
           BRANCH_NAME == 'dev' || BRANCH_NAME == 'master'
         }
-      }
+      } */
           steps {
-        
-              bat 'mvn package'
+             bat 'mvn package'
+        withCredentials(
+          [
+            usernamePassword(credentials: 'server-credentials', 
+                             usernameVariable: USER, passwordVariable: PWD
+          ]
+        ) 
+            {
+              bat "SHOWING HOW TO DISPLAY CREDENTIALS ${USER} ${PWD}"
+            }
             
           }
           }
