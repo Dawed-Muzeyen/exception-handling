@@ -1,10 +1,14 @@
 pipeline {
   agent any
-  tools {
-        maven 'maven_8_2'
+  environment {
+       PATH = "C:\apache-maven-3.8.1\bin:$PATH"
       
     }
   stages {
+     stage('Compile Stage') {
+      steps {
+    git url: "https://github.com/Dawed-Muzeyen/exception-handling.git"
+      }}
     stage('Compile Stage') {
       steps {
      
