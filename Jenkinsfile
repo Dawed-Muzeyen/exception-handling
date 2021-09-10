@@ -24,7 +24,7 @@ pipeline {
        
       when {
         expression {
-          param.executeTests
+          params.executeTests
         }
       }
     
