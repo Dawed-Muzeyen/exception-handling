@@ -1,9 +1,10 @@
 pipeline {
   agent any
+ 
  // CODE_CHANGES = getChanges() // this is the groovy method to be implemented
   environment {
        PATH = "C:/apache-maven-3.8.1/bin:$PATH"
-      
+      NEW_VERSION = '1.3.0'
     }
   stages {
      stage('Clone COde') {
@@ -12,8 +13,8 @@ pipeline {
       }}
     stage('Compile Stage') {
       steps {
-     
-     // echo GIT_AUTHOR_EMAIL
+        echo "Compiling a new version ${NEW_VERSION}"
+        echo ${GIT_AUTHOR_EMAIL}
           bat "mvn clean"
         
       }
