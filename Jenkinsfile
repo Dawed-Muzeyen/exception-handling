@@ -13,7 +13,7 @@ pipeline {
     stage('Compile Stage') {
       steps {
      
-      echo GIT_AUTHOR_EMAIL
+     // echo GIT_AUTHOR_EMAIL
           bat "mvn clean"
         
       }
