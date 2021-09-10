@@ -1,5 +1,6 @@
 pipeline {
   agent any
+ // CODE_CHANGES = getChanges() // this is the groovy method to be implemented
   environment {
        PATH = "C:/apache-maven-3.8.1/bin:$PATH"
       
@@ -17,6 +18,12 @@ pipeline {
       }
       }
     stage('Testing Stage') {
+      
+       when {
+        expression {
+          BRANCH_NAME == 'dev' && CODE_CHANGES == 'master'
+        }
+      }
           steps {
           
               bat 'mvn test'
@@ -24,6 +31,11 @@ pipeline {
           }
           }
     stage('Packagin Stage') {
+      when {
+        expression {
+          BRANCH_NAME == 'dev' || BRANCH_NAME == 'master'
+        }
+      }
           steps {
         
               bat 'mvn package'
@@ -40,7 +52,7 @@ pipeline {
   }
   post {
     always {
-      echo "it is always executed!"
+      echo GIT_AUTHOR_EMAIL
     }
     success {
       echo "we are successful"
