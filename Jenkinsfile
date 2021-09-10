@@ -4,9 +4,15 @@ pipeline {
  // CODE_CHANGES = getChanges() // this is the groovy method to be implemented
   environment {
        PATH = "C:/apache-maven-3.8.1/bin:$PATH"
+      
       NEW_VERSION = '1.3.0'
     SERVER_CREDENTIALS = credentials('dawed-server')
     }
+  
+   /* tools {
+    maven 'maven_8_2'
+  }
+  */
   stages {
      stage('Clone COde') {
       steps {
