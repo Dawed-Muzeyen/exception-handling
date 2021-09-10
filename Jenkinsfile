@@ -1,6 +1,12 @@
 pipeline {
   agent any
  
+ parameters {
+  // string(name: 'VERSION', defaultValue:'', desription: 'version to deploy onn prod')
+   choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], decription: 'try choices')
+   booleanParam(name: 'executeTests', defaultValues: true, description: 'say to true or false')
+ }
+
  // CODE_CHANGES = getChanges() // this is the groovy method to be implemented
   environment {
        PATH = "C:/apache-maven-3.8.1/bin:$PATH"
@@ -15,6 +21,15 @@ pipeline {
   */
   stages {
      stage('Clone COde') {
+       
+      when {
+        expression {
+          param.executeTests
+        }
+      }
+    
+       
+       
       steps {
    git branch: 'main', changelog: false, credentialsId: 'MyGitHub', poll: false, url: 'https://github.com/Dawed-Muzeyen/exception-handling.git'
       }}
