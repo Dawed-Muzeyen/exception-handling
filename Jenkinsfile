@@ -4,7 +4,7 @@ pipeline {
  parameters {
   // string(name: 'VERSION', defaultValue:'', desription: 'version to deploy onn prod')
    choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: 'try choices')
-   booleanParam(name: 'executeTests', defaultValues: true, description: 'say to true or false')
+   booleanParam(name: 'executeTests', defaultValue: true, description: 'say to true or false')
  }
 
  // CODE_CHANGES = getChanges() // this is the groovy method to be implemented
