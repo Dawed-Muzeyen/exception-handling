@@ -53,6 +53,7 @@ pipeline {
   }
   post {
     always {
+      echo "Alwyas ok"
     }
     success {
       echo "we are successful"
