@@ -65,7 +65,7 @@ pipeline {
           steps {
          
               bat 'mvn install'
-            echo "installed it successfully ${SERVER_CREDENTIALS}"
+            //echo "installed it successfully ${SERVER_CREDENTIALS}"
           }
           }
   }
