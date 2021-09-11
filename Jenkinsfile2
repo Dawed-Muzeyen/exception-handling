@@ -25,7 +25,7 @@ pipeline {
       }}
     stage('Compile Stage') {
       steps {
-        echo "Compiling a new version ${NEW_VERSION}"
+       // echo "Compiling a new version ${NEW_VERSION}"
       //  echo "${GIT_AUTHOR_EMAIL}"
           bat "mvn clean"
         
