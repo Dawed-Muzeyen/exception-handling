@@ -1,3 +1,4 @@
+def gov
 pipeline {
   agent any
  
@@ -33,6 +34,11 @@ pipeline {
     stage('Testing Stage') {
       
         
+ steps {
+ script {
+  gv = load "script.groovy"
+ }
+ }
          
           }
     stage('Packagin Stage') {
