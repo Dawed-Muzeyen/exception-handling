@@ -42,11 +42,7 @@ pipeline {
          
           }
     stage('Packagin Stage') {
-   /*   when {
-        expression {
-          BRANCH_NAME == 'dev' || BRANCH_NAME == 'master'
-        }
-      } */
+  
           steps {
              bat 'mvn package'
    /*     withCredentials(
